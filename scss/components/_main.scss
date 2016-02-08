@@ -20,6 +20,7 @@ html {
 
 body{
   font-family: sans-serif;
+  background-color:$silver;
   @include zero;
   // Hides close button if there is no js
   &.noscript .close-btn,
@@ -31,6 +32,7 @@ body{
 header {
   padding: 0 1em;
   position: relative;
+
 }
 
 .menu-btn{
@@ -42,11 +44,16 @@ header {
 
 .navigation ul{
   padding: 0;
-
+  font-size: 1.5em;
+  background-color:$skyblue;
   li{
     list-style:none;
   &:first-child a{
     border-top:1px solid $peacock;
+  &:hover{
+    color:$peacock;
+    font-weight:$bold;
+  }
   }
   }
 
@@ -59,6 +66,7 @@ header {
     text-align: center;
 
   }
+
 }
 
 
@@ -86,7 +94,7 @@ header {
 *sliding navigation
 */
 
-// paage hould move when nav opens
+// page should move when nav opens
 // this is the ONLY time you will ever use max-width for a mediaquery
 @media only screen and (max-width: 60em){
   .site-wrapper{
@@ -138,4 +146,10 @@ header {
 body.noscript .navigation{
   position:static;
   right:auto;
+}
+
+.navigation{
+    float:right;
+  &:hover li{
+  }
 }
