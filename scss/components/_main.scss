@@ -46,7 +46,7 @@ header {
   li{
     list-style:none;
   &:first-child a{
-    border-top:1px solid $light-grey;
+    border-top:1px solid $peacock;
   }
   }
 
@@ -54,7 +54,7 @@ header {
     display: block;
     padding: 1em;
     color: $text-color;
-    border-bottom: 1px solid $light-grey;
+    border-bottom: 1px solid $peacock;
     text-decoration: none;
     text-align: center;
 
@@ -69,7 +69,7 @@ header {
   height:40px;
   width:40px;
   &:before{
-    border: 1px solid $light-grey;
+    border: 1px solid $peacock;
     display:inline-block;
     padding:13px 11px;
     height:40px;
