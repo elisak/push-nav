@@ -54,6 +54,7 @@ header {
 
 h1 {
   font-family: "Playball", cursive;
+  color: #fa8072;
 }
 
 .menu-btn {
@@ -76,11 +77,6 @@ h1 {
   border-top: 1px solid #33A1C9;
 }
 
-.navigation ul li:first-child a:hover {
-  color: #33A1C9;
-  font-weight: bold;
-}
-
 .navigation ul a {
   display: block;
   padding: 1em;
@@ -88,6 +84,11 @@ h1 {
   border-bottom: 1px solid #33A1C9;
   text-decoration: none;
   text-align: center;
+}
+
+.navigation ul a:hover {
+  font-weight: bold;
+  color: #33A1C9;
 }
 
 .menu-btn,
@@ -148,6 +149,10 @@ h1 {
     height: 100%;
     padding: 0;
     min-height: 800px;
+    float: right;
+  }
+  .navigation li {
+    display: inline-block;
   }
 }
 
@@ -158,11 +163,15 @@ h1 {
   }
 }
 
+.navigation {
+  float: right;
+}
+
+.navigation li {
+  display: inline-block;
+}
+
 body.noscript .navigation {
   position: static;
   right: auto;
-}
-
-.navigation {
-  float: right;
 }

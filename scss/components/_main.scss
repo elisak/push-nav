@@ -34,9 +34,12 @@ header {
   position: relative;
 
 }
+
 h1{
   font-family:$playball;
+  color:$coral;
 }
+
 .menu-btn{
   position: absolute;
   right: 1em;
@@ -52,11 +55,8 @@ h1{
     list-style:none;
   &:first-child a{
     border-top:1px solid $peacock;
-  &:hover{
-    color:$peacock;
-    font-weight:$bold;
   }
-  }
+
   }
 
   a{
@@ -66,7 +66,11 @@ h1{
     border-bottom: 1px solid $peacock;
     text-decoration: none;
     text-align: center;
+    &:hover{
+      font-weight:$bold;
+      color:$peacock;
 
+    }
   }
 
 }
@@ -98,6 +102,8 @@ h1{
 
 // page should move when nav opens
 // this is the ONLY time you will ever use max-width for a mediaquery
+
+
 @media only screen and (max-width: 60em){
   .site-wrapper{
     position: relative;
@@ -132,6 +138,10 @@ h1{
     height:100%;
     padding:0;
     min-height:800px;
+    float:right;
+    li{
+      display:inline-block;
+    }
 
   }
 }// max-width media-query
@@ -144,14 +154,20 @@ h1{
   }
 }
 
+.navigation{
+    float:right;
+    ul{
+    }
+    li{
+      display:inline-block;
+    }
+
+}
+
 // show navigation on screen when there is no JS
 body.noscript .navigation{
   position:static;
   right:auto;
 }
 
-.navigation{
-    float:right;
-  &:hover li{
-  }
-}
+
