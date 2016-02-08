@@ -1,6 +1,141 @@
-//import mixins
-@import "base";
-@import "mixins";
+@-moz-viewport { width: device-width; scale: 1; }
+@-ms-viewport { width: device-width; scale: 1; }
+@-o-viewport { width: device-width; scale: 1; }
+@-webkit-viewport { width: device-width; scale: 1; }
+@viewport { width: device-width; scale: 1; }
 
-//import component
-@import "components/main";
+html {
+	box-sizing: border-box;
+	-moz-text-size-adjust: 100%;
+	-ms-text-size-adjust: 100%;
+	-webkit-text-size-adjust: 100%;
+	text-size-adjust: 100%;
+}
+
+
+*, *:before, *:after {
+	box-sizing: inherit;
+}
+
+
+body{
+  font-family: sans-serif;
+  @include zero;
+  // Hides close button if there is no js
+  &.noscript .close-btn,
+  &.noscript .toggle-btn{
+      display: none;
+  }
+}
+
+header {
+  padding: 0 1em;
+  position: relative;
+}
+
+.menu-btn{
+  position: absolute;
+  right: 1em;
+  top:0;
+}
+
+
+.navigation ul{
+  padding: 0;
+
+  li{
+    list-style:none;
+  &:first-child a{
+    border-top:1px solid $light-grey;
+  }
+  }
+
+  a{
+    display: block;
+    padding: 1em;
+    color: $text-color;
+    border-bottom: 1px solid $light-grey;
+    text-decoration: none;
+    text-align: center;
+
+  }
+}
+
+
+.menu-btn,
+.close-btn{
+  text-decoration: none;
+  color:$text-color;
+  height:40px;
+  width:40px;
+  &:before{
+    border: 1px solid $light-grey;
+    display:inline-block;
+    padding:13px 11px;
+    height:40px;
+    width:40px;
+  }
+  span{
+    @include element-invisible;
+
+  }
+}
+
+
+/**
+*sliding navigation
+*/
+
+// paage hould move when nav opens
+// this is the ONLY time you will ever use max-width for a mediaquery
+@media only screen and (max-width: 60em){
+  .site-wrapper{
+    position: relative;
+    overflow:hidden;
+    width:100%;
+    z-index:100;
+
+  .sliding-canvas{
+    width:100%;
+    height:100%;
+    position:relative;
+    tranform: translateX(0);
+    transition: all 300ms ease-in-out;
+  }
+
+  &[data-state="slide-open"] .sliding-canvas{
+    transform: translateX(-100%);
+  }
+  &[data-state="slide-open"]{
+    overflow: visible;
+  }
+
+}
+// navigation
+  .navigation{
+    // creates the offset of navigation
+    position: absolute;
+    width:100%;
+    right: -100%;
+    top: 0;
+    bottom:0;
+    height:100%;
+    padding:0;
+    min-height:800px;
+
+  }
+}// max-width media-query
+
+// reset the page when desktop, even if nav is toggled open
+@media only screen and (min-width:60em){
+  .menu-btn,
+  .close-btn{
+    display:none;
+  }
+}
+
+// show navigation on screen when there is no JS
+body.noscript .navigation{
+  position:static;
+  right:auto;
+}
