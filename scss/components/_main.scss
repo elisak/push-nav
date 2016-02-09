@@ -139,9 +139,6 @@ h1{
     padding:0;
     min-height:800px;
     float:right;
-    li{
-      display:inline-block;
-    }
 
   }
 }// max-width media-query
@@ -152,17 +149,16 @@ h1{
   .close-btn{
     display:none;
   }
+  .navigation{
+      float:right;
+      li{
+        display:inline-block;
+      }
+
+  }
 }
 
-.navigation{
-    float:right;
-    ul{
-    }
-    li{
-      display:inline-block;
-    }
 
-}
 
 // show navigation on screen when there is no JS
 body.noscript .navigation{
